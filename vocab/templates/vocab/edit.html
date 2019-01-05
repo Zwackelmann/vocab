@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block header %}
+  <h1>{% block title %}Edit Vocab{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post" action="/edit/{{ v.doc_id }}">
+    {{ render_field(form.word_jp) }}
+    {{ render_field(form.translations) }}
+    {{ render_field(form.sentences) }}
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block header %}
+  <h1>{% block title %}New Vocab{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div id="test_container"></div>
+<form method="post" action="/create">
+    {{ render_field(form.word_jp) }}
+    {{ render_field(form.translations) }}
+    {{ render_field(form.sentences) }}
+    <input type="submit" value="Save">
+</form>
+<link rel="stylesheet" href="">
+<script src="{{ url_for('static', filename='hellomessage.js') }}" type="text/babel"></script>
+{% endblock %}

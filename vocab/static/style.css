@@ -1,0 +1,151 @@
+html {
+  font-family: sans-serif;
+  background: #eee;
+  padding: 1rem;
+}
+
+body {
+  max-width: 960px;
+  margin: 0 auto;
+  background: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  color: #377ba8;
+  margin: 1rem 0;
+  font-size: 3.0em;
+  font-weight: 300;
+}
+
+a {
+  color: #377ba8;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid lightgray;
+}
+
+.content {
+  padding: 0 1rem 1rem;
+}
+
+.content > header {
+  border-bottom: 2px solid lightgray;
+  display: flex;
+  align-items: flex-end;
+}
+
+.vocab > header {
+  display: flex;
+  align-items: flex-end;
+}
+
+.translations {
+  white-space: pre-line;
+  font-size: 1.6em;
+  font-family: "Cousine", "sans-serif";
+}
+
+.sentences > .jp {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.sentences > .trans {
+  font-size: 1em;
+  color: #999;
+  margin-top: 0;
+}
+
+.footer {
+  background: #eee;
+}
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+.content:last-child {
+  margin-bottom: 0;
+}
+
+.content form {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.content input, .content textarea {
+  margin-bottom: 1em;
+}
+
+.content textarea {
+  resize: vertical;
+}
+
+input[type=submit] {
+  align-self: start;
+  min-width: 10em;
+}
+
+.content > form > input[id=word_jp] {
+  font-size: 2.5em;
+}
+
+.content > form > textarea {
+  font-family: "Cousine", "sans-serif";
+}
+
+.content > form > textarea[id=translations] {
+  font-size: 1em;
+  height: 5em;
+}
+
+.content > form > textarea[id=sentences] {
+  font-size: 1.5em;
+  height: 10em;
+  font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-weight: 300;
+}
+
+/*
+
+.content > header h1 {
+  flex: auto;
+  margin: 1rem 0 0.25rem 0;
+}
+
+.vocab > header > div:first-of-type {
+  flex: auto;
+}
+
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  background: #cae6f6;
+  border: 1px solid #377ba8;
+}
+
+input.danger {
+  color: #cc2f2e;
+}
+
+*/

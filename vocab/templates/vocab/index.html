@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for v in vocab %}
+  <article class="vocab" id="vocab_{{ v.doc_id }}">
+      <header>
+        <div>
+          <h1>{{ render_jp(v.entity.word_jp) }}</h1>
+        </div>
+      </header>
+      <p class="translations">{{ " / ".join(v.entity.translations) }}</p>
+      <div class="sentences">
+        {% for s in v.entity.sentences %}
+        <p class="jp">{{ render_jp(s.jp) }}</p>
+        {% if s.translation is not none %}
+          <p class="trans">{{ s.translation }}</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <a href="/edit/{{ v.doc_id }}">edit</a>
+      <a href="/delete/{{ v.doc_id }}" onclick="return confirm('Are you sure?')">delete</a>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+
+{% block footer %}
+<div class='footer'>
+<a href="/create">new</a>
+</div>
+{% endblock %}
