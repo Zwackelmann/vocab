@@ -5,8 +5,10 @@
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
+{% block header %}{% endblock %}
+
 <section class="content">
-  {% block header %}{% endblock %}
+  {% block headline %}{% endblock %}
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}

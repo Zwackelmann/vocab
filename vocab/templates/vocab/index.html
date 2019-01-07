@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<div class='header'>
+    <a href="/create">new</a>
+    {% if prev_page is not none %}
+      <a href="/?page={{ prev_page }}">prev</a>
+    {% else %}
+      <a>prev</a>
+    {% endif %}
+
+    {% if next_page is not none %}
+      <a href="/?page={{ next_page }}">next</a>
+    {% else %}
+      <a>next</a>
+    {% endif %}
+</div>
+{% endblock %}
+
 {% block content %}
   {% for v in vocab %}
   <article class="vocab" id="vocab_{{ v.doc_id }}">
@@ -29,5 +46,16 @@
 {% block footer %}
 <div class='footer'>
 <a href="/create">new</a>
+{% if prev_page is not none %}
+<a href="/?page={{ prev_page }}">prev</a>
+{% else %}
+<a>prev</a>
+{% endif %}
+
+{% if next_page is not none %}
+<a href="/?page={{ next_page }}">next</a>
+{% else %}
+<a>next</a>
+{% endif %}
 </div>
 {% endblock %}

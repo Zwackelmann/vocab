@@ -63,6 +63,13 @@ def is_kanji(c):
     return re.match(JpRE.kanji, c) is not None
 
 
+def is_hiragana(c):
+    """
+    Returns `True` if supplied character is a kanji character
+    """
+    return re.match(JpRE.hiragana_full, c) is not None
+
+
 def is_whitespace(c):
     """
     Returns `True` if supplied character is a whitespace character

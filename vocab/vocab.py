@@ -8,6 +8,8 @@ from wtforms import StringField, Form, validators, TextAreaField
 
 bp = Blueprint('vocab', __name__)
 
+VOCAB_PER_PAGE = 10
+
 
 class VocabForm(Form):
     word_jp = StringField('Word', [validators.Length(min=1, max=100)])
@@ -20,8 +22,13 @@ def index():
     """
     Route showing all Vocab
     """
-    documents = [DocumentManager.from_document(d, table('vocab')) for d in table('vocab').all()]
-    return render_template('vocab/index.html', vocab=documents)
+    page = request.args.get('page', 1, type=int)
+    documents = list(reversed([DocumentManager.from_document(d, table('vocab')) for d in table('vocab').all()]))
+
+    return render_template('vocab/index.html',
+                           vocab=documents[(page-1)*VOCAB_PER_PAGE: page*VOCAB_PER_PAGE],
+                           next_page=page+1 if len(documents) > page*VOCAB_PER_PAGE else None,
+                           prev_page=page-1 if page > 1 else None)
 
 
 @bp.route('/delete/<doc_id>', methods=('GET', ))

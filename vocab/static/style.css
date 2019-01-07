@@ -63,6 +63,10 @@ hr {
   background: #eee;
 }
 
+.header {
+  background: #eee;
+}
+
 @keyframes cssAnimation {
     to {
         width:0;
